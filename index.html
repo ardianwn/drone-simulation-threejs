@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Drone dengan Three.js</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+      }
+      
+      body {
+        overflow: hidden;
+        background-color: #111;
+        color: white;
+      }
+      
+      #app {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+      }
+
+      #sensor-dashboard {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        border-radius: 8px;
+        width: 300px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      #sensor-dashboard h3 {
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 8px;
+        color: #4dc4ff;
+      }
+
+      .sensor-reading {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 5px 0;
+      }
+
+      .sensor-label {
+        color: #ccc;
+      }
+
+      .sensor-value {
+        font-weight: bold;
+        color: #4dc4ff;
+      }
+
+      .sensor-unit {
+        color: #999;
+        margin-left: 4px;
+      }
+
+      #drone-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        border-radius: 8px;
+        width: 300px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      #drone-controls h3 {
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 8px;
+        color: #4dc4ff;
+      }
+
+      .control-hint {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+
+      .key {
+        background-color: #333;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .section-divider {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 6px;
+        color: #4dc4ff;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="app"></canvas>
+    
+    <!-- UI Panels placeholders to be populated by JavaScript -->
+    <div id="sensor-panel" style="display: none;"></div>
+    <div id="autopilot-panel" style="display: none;"></div>
+    <div id="system-status-panel" style="display: none;"></div>
+    <div id="vision-panel" style="display: none;"></div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
